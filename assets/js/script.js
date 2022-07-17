@@ -44,6 +44,10 @@ function runGame(gameType) {
         displayMultiplyQuestion(num1, num2);
     } else if (gameType === "subtract" ) {
         displaySubtractQuestion(num1, num2);
+    } else if (gameType === "division") {
+        displayDivisionQuestion(num1, num2);
+    } else if (operator === "/") {
+        return [operand1 / operand2, "division"];
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -75,7 +79,7 @@ function checkAnswer() {
 
 /**
  * Gets the operands (the numbers) and the operator (plus, minus etc)
- * directly from the dom, and returns the correct answer.
+ * directly from the DOM, and returns the correct answer.
  */
 function calculateCorrectAnswer() {
 
@@ -137,5 +141,12 @@ function displayMultiplyQuestion(operand1, operand2) {
     document.getElementById('operand1').textContent = operand1;
     document.getElementById('operand2').textContent = operand2;
     document.getElementById('operator').textContent = "x";
+
+}
+
+function displayDivisionQuestion(operand1, operand2) {
+    document.getElementById('operand1').textContent = operand1 * operand2;
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = "/";
 
 }
